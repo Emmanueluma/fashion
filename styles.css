@@ -1,0 +1,1582 @@
+/* this style is universal*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    list-style-type: none;
+    transition: all 0.4s linear;
+}
+/* this style is for the root*/
+:root{
+    --h: 663px;
+    --orange:#ff7800;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+    --border:.2rem solid rgba(0,0,0,.1);
+    --outline:.1rem solid rgba(0,0,0,.1);
+    --outline-hover:.2rem solid var(--black);
+}
+/* font awesome icons size*/
+i {
+    font-size: 2rem;
+}
+/* this is for all the html*/
+html {
+    scroll-behavior: smooth;
+}
+/* this style is body*/
+body {
+    background-color: #eee;
+    font-family: 'Poppins', sans-serif;
+    font-size: 100px;
+}
+body div.center {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #000;
+    z-index: 9999999;
+    transition: .72s;
+}
+body div.centerHidden {
+    opacity:  0;
+    visibility: hidden;
+}
+body div.center div.ring{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    animation: ring 2s linear infinite;
+}
+@keyframes ring {
+    0% {
+        transform: rotate(0deg);
+        box-shadow: 1px 5px 2px #e65c00;
+    }
+    50% {
+        transform: rotate(180deg);
+        /* box-shadow: 1px 5px 2px #e65c00; */
+        box-shadow: 1px 5px 2px #18B201;
+    }
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 1px 5px 2px #0456c8;
+    }
+}
+body div.center div.ring:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, .3);
+}
+body div.center span{
+    color: #737373;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 200px;
+    animation: text 3s ease-in-out infinite;
+}
+@keyframes text {
+    50% {
+        color: #000;
+    }
+}
+/*this for the header declaring the height from the root*/
+header{
+    height:100%;
+}
+/* this style is the nav section of the header section*/
+header .nav {
+    width: 100%;
+    height: 5vw;
+    background-color: #fff;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+}
+/* this style is for the section  of the nav section*/
+header .nav section.logo {
+    width: 123px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    animation: brand 2s ease-in 1 ;
+}
+@keyframes brand {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to{
+        opacity: 1;
+    }
+}
+/* declares text color*/
+header .nav section.logo i {
+    color: var(--orange);
+    font-size: 2vw;
+}
+/* declares the font size for the text*/
+header .nav section.logo span {
+    color: var(--black);
+    font-size: 1.8vw;
+    font-weight: 600;
+}
+/* just giving the menu a width and font size*/
+header .nav section.menu {
+    width: 550px;
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: menu 1s ease-in forwards 3s ;
+}
+@keyframes menu {
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+    }
+}
+/* the makes it flex and space between*/
+header .nav section.menu ul {
+    display: flex;
+    justify-content: space-between;
+}
+/* just changed the behaviour to inline block*/
+header .nav section.menu ul li {
+    display: inline-block;
+}
+header .nav section.menu ul li a {
+    color: var(--black);
+    font-size: 1.2vw;
+    transition: all .3s linear;
+}
+header .nav section.menu ul li a:hover {
+    color: var(--orange);
+}
+/* the section icons seciton*/
+header .nav section.icons {
+    width: 15vw;
+    height: 3vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    animation: icons 2s ease-in 1 ;
+}
+@keyframes icons {
+    from{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* giving style to the sections inside the section of nav*/
+header .nav section.icons section {
+    width: 2.3vw; height: 2.3vw;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: all .3s linear;
+}
+header .nav section.icons section:hover {
+    background-color: var(--orange);
+}
+/* font awesome font changed*/
+header .nav section.icons section i {
+    color: var(--black);
+    font-size: 1.3vw;
+    transition: all .3s linear;
+}
+header .nav section.icons section.icon0{
+    display: none;
+}
+header .nav section.icons section:hover i {
+    color: #fff;
+}
+/* the menu section that will show onclick*/
+header .comes #menu {
+    padding: 1vw;
+    width: 25vw;
+    height: 30vw;
+    background-color: #fff;
+    position: fixed;
+    top: 100px;
+    left: 60vw;
+    z-index: 8888888888;
+    box-shadow: var(--box-shadow);
+    border-radius: .5vw;
+    display: none;
+}
+header .comes #menu li {
+    height: 4.7vw;
+    display: flex;
+    justify-content: flex-start;
+}
+header .comes #menu li a {
+    color: var(--black);
+    font-size: 1rem;
+}
+/* the search section that will show onclick*/
+header .comes .search{
+    display: flex;
+    position: fixed;
+    top: 100px;
+    left: 68vw;
+    z-index: 8888888888;
+    box-shadow: var(--box-shadow);
+    display: none;
+}
+header .comes .search input {
+    width: 30vw;
+    height: 30px;
+    padding: 20px;
+    border-radius: 10px;
+}
+header .comes .search i {
+    position: relative;
+    top: 15px;
+    left: -40px;
+    font-size: 15px;
+}
+/* the list section that will show onclick*/
+header .comes .list {
+    width: 22vw;
+    height: 35vw;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 80px;
+    left: 70vw;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    z-index: 8888888888;
+    font-size: 17px;
+    display: none;
+}
+header .comes .list div {
+    width: 90%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .comes .list div section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .comes .list div section.one {
+    width: 40%;
+    height: 70%;
+}
+header .comes .list div section.one img{
+    width: calc(102.3px + 34.1px + 17.05px);
+    height: calc(70.19px + 23.39px + 11.7px);
+}
+header .comes .list div section.two {
+    width: 55%;
+    height: 70%;
+}
+header .comes .list div section.two .div1 {
+    display: flex;
+    flex-direction: column;
+} 
+header .comes .list div section.two .div1 section {
+    width: 100%;
+    height: 50%;
+}
+header .comes .list div section.two .div1 section.one h1 {
+    font-size: 1.2rem;
+    justify-content: left;
+}
+header .comes .list div section.two .div1 section.two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .comes .list div section.two .div1 section.two div{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .comes .list div section.two div.div2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .comes .list div section.two div.div2 i{
+    font-size: 1.4rem;
+    color: var(--black);
+    text-align: center;
+    transition: all 0.3s linear;
+}
+header .comes .list div section.two div.div2 i:hover {
+    color: var(--orange);
+}
+header .comes .list div section .div1 {
+    width: 80%;
+    height: 100%;
+}
+header .comes .list div section .div2 {
+    width: 20%;
+    height: 100%;
+}
+header .comes .list div.four {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+header .comes .list div.four section {
+    width: 100%;
+    height: 50%;
+}
+header .comes .list div.four section.two a {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #000;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--black);
+    transition: all 0.3s linear;
+}
+header .comes .list div.four section.two a:hover {
+    background-color: var(--orange);
+    color: #fff;
+}
+/* the login section that will show onclick*/
+header section.login {
+    width: 23vw;
+    height: 20vw;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 80px;
+    left: 100vw;
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    z-index: 8888888888;
+    font-size: .9rem;
+    display: none;
+}
+header section.login h1 {
+    font-size: 1.2rem;
+}
+header section.login div {
+    width: 90%;
+    height: 20%;
+}
+header section.login .div1,header section.login .div2 {
+    width: 90%;
+    height: 15%;
+    border-radius: 10px;
+    background-color: #eee;
+}
+header section.login div input {
+    width: 80%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-left: 5px;
+}
+header section.login div.div3 {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+header section.login div.div3 a {
+    font-size: 10px;
+    text-decoration: underline;
+    color: var(--orange);
+}
+header section.login div.div4 {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header section.login div.div4 a {
+    padding: 10px 45px;
+    background-color: transparent;
+    border: 2px solid var(--black);
+    border-radius: 7px;
+    color: var(--black);
+    font-size: 1.2rem;
+    transition: all .3s linear;
+}
+header section.login div.div4 a:hover{
+    color: #fff;
+    background-color: var(--orange);
+}
+header section.main {
+    position: relative;
+    top: 0; left: 0;
+    height: 29.5vw;
+    width: 100%;
+    background: url(image/image/bg.jpeg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+header section.main h1{
+    font-size: 30%;
+    color: var(--black);
+    transform: translateY(-10px);
+    animation: header 2s ease-in 1;
+}
+header section.main h1 span {
+    color: var(--orange);
+}
+@keyframes header {
+    0% {
+        opacity: 0;
+        transform: translate(0,-50px);
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+header section.main p{
+    font-size: 15%;
+    text-align: center;
+    line-height: 2vw;
+    animation: header 2.5s ease-in 1 ;
+    display: none;
+}
+header section.main a {
+    padding: 5px 25px;
+    background-color: transparent;
+    border: 2px solid var(--black);
+    border-radius: 7px;
+    color: var(--black);
+    font-size: 1.2vw;
+    margin-top: 20px;
+    transition: all .2s linear;
+    transform: translateY(40px);
+    animation: header 3s ease-in 1 ;
+}
+header section.main a:hover{
+    color: #fff;
+    background-color: var(--orange);
+}
+
+/* the feature section */
+main section {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+main section h1 {
+    font-size: 25%;
+    color: var(--black);
+    font-weight: 600;
+    padding: 2rem 0;
+}
+main section h1 span {
+    background: var(--orange);
+    color: #fff;
+    display: inline-block;
+    padding: 0rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+main section div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    height: 60vh;
+    padding-top: 2%;
+    margin-bottom: 10px;
+}
+main section div section {
+    width: 32%;
+    height: 100%;
+    background-color: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    outline: var(--outline);
+    outline-offset: -10px;
+    transition: all .2s linear;
+    box-shadow: var(--box-shadow);
+}
+main section div section:hover {
+    outline-offset: 0;
+    outline: 2px solid var(--black);
+}
+main section div section div {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+main section div section div.div {
+    background-color: transparent;
+    
+}
+main section div section div img {
+    height: 10vw;
+}
+main section div section .div2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+main section div section .div2 h1 {
+    position: relative;
+    top: -15%;
+    font-size: 20%;
+}
+main section div section .div2 p{
+    text-align: center;
+    font-size: 13%;
+    position: relative;
+    top: -28%;
+} 
+main section div section .div2 a {
+    position: relative;
+    top: -15%;
+    padding: 3% 15%;
+    background-color: transparent;
+    border: 2px solid var(--black);
+    border-radius: 7px;
+    color: var(--black);
+    font-size: 13%;
+    transition: all .3s linear;
+}
+main section div section .div2 a:hover {
+    color: #fff;
+    background-color: var(--orange);
+}
+/* the product section */
+main section.product div{
+    margin-bottom: 1%;
+    min-width: 80%;
+    max-height: 62vh;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+main section.product div section {
+    margin-left: 1vw;
+    margin-bottom: 1vw;
+}
+main section.product div section:first-child {
+    margin-left: 133vw;
+}
+main section.product div section  div{
+    width: 26.5vw;
+    overflow: hidden;
+}
+main section.product div section  div h1{
+    font-size: 25%;
+}
+main section.product div section  div p {
+    font-size: 15%;
+    color: var(--light-color);
+    padding: 0 1vw;
+}
+main section.product div section  div section {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    height: 20%;
+    outline: none;
+    transform: translateY(-2vw);
+    background-color: transparent;
+    box-shadow: none;
+}
+main section.product div section  div section i {
+    font-size: 18%;
+    color: var(--orange);
+}
+/* the catergories section */
+main section.categories {
+    margin-bottom: 3vw;
+}
+main section.categories div {
+    max-height: 62vh;
+}
+main section.categories div section {
+    margin-left: 1vw;
+    border-radius: .4vw;
+}
+main section.categories div section div p {
+    padding: 0 .5vw;
+    font-size: 15%;
+    color: var(--light-color);
+}
+/* the reviews section */
+main section.reviews {
+    margin-bottom: 2vw;
+}
+main section.reviews .container {
+    min-width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    margin: 0;
+}
+main section.reviews div section {
+    min-width: 25vw;
+    margin-left: 2vw;
+    margin-bottom: 2vw;
+    border-radius: .4vw;
+}
+main section.reviews div section:first-child {
+    margin-left: 30vw;
+}
+main section.reviews div section div{
+    overflow: hidden;
+}
+main section.reviews div section div img {
+    border-radius: 50%;
+}
+main section.reviews .container .box .div2 {
+    display: flex;
+    padding: 2vw 1vw;
+    justify-content: space-around;
+}
+main section.reviews .container .box .div2 p {
+    font-size: 13%;
+    transform: translateY(2vw);
+    padding: 0 5px 0 5px;
+}
+main section.reviews .container .box .div2 h2 {
+    font-size: 20%;
+}
+main section.reviews div section  div section {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    height: 20%;
+    outline: none;
+    box-shadow: none;
+    transform: translateX(-4%);
+}
+main section.reviews div section  div section i {
+    font-size: 15%;
+    color: var(--orange);
+}
+/* the blog section */
+main section.blogs .container {
+    margin-bottom: 3vw;
+    width: 83.5%;
+    height: 40vw;
+}
+main section.blogs .container section{
+    outline: none;
+    border-radius: .5vw;
+}
+main section.blogs .container section .div {
+    width: 100%;
+    height: 40%;
+    margin: 0;
+}
+main section.blogs .container section .div img {
+    width: 100%;
+    height: 17.5vw;
+    margin: 0;
+    border-top-left-radius: .5vw;
+    border-top-right-radius: .5vw;
+}
+main section.blogs .container section .text_hr {
+    width: 100%;
+    height: 10%;
+    margin: 0;
+    display: block;
+    padding: 0 3% 0 3%;
+}
+main section.blogs .container section .text_hr .text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--light-color);
+    width: 100%;
+    height: 80%;
+    margin: 0;
+    font-size: 15%;
+}
+main section.blogs .container section .text_hr .text i {
+    color: var(--orange);
+    font-size: 95%;
+}
+main section.blogs .container section .text_hr .hr {
+    height: 20%;
+    margin: 0;
+}
+main section.blogs .container section .text_hr .hr hr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: .15vw;
+    margin-top: 1vw;
+    background-color: #eee;
+    border: none;
+    border-radius: 2vw;
+}
+main section.blogs .container section .main_text {
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing:border-box;
+}
+main section.blogs .container section .main_text div {
+    margin: 0; 
+    padding: 0;
+    padding-left: 10px;
+}
+main section.blogs .container section .main_text div.h1 {
+    display: block;
+    height: 24%;
+}
+main section.blogs .container section .main_text div.p  {
+    display: block;
+    height: 45%;
+}
+main section.blogs .container section .main_text div.a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+main section.blogs .container section .main_text div.h1 h1 {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    margin: 0;
+    padding: 0;
+}
+main section.blogs .container section .main_text div.p p {
+    font-size: 1rem;
+    margin: 0;
+    padding-left: 10px;
+}
+main section.blogs .container section .main_text  div.a a{
+    margin-top: 0;
+    padding: 3% 9%;
+    background-color: transparent;
+    border: 2px solid var(--black);
+    border-radius: 7px;
+    color: var(--black);
+    font-size: 15%;
+    transition: all .3s linear;
+}
+main section.blogs .container section .main_text a:hover {
+    color: #fff;
+    background-color: var(--orange);
+}
+footer {
+    width: 100%;
+    height: auto;
+}
+footer i {
+    color: var(--orange);
+}
+footer .container{
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    height: 30vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+footer #link{
+    text-transform: lowercase;
+}
+footer .container section {
+    width: 18%;
+    height: 80%;
+    padding: 1vw;
+}
+footer .container section hr {
+    width: 90%;
+    height: 1%;
+    border-radius: 10px;
+    display: none;
+}
+footer .container section h1 {
+    margin-bottom: 1.3vw;
+    font-size: 25%;
+    color: var(--black);
+}
+footer .container section h1 i {
+    font-size: 100%;
+}
+footer .container section.one h1 {
+    margin-bottom: 1vw;
+}
+footer .container section.one p {
+    line-height: 2vw;
+    color: var(--light-color);
+    font-size: 10%;
+    line-height: 1rem;
+}
+footer .container section.one section {
+    width: 90%;
+    height: 18%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+footer .container section.one section div {
+    width: 22%;
+    height: 80%;
+    background-color: #eee;
+    border-radius: .5vw;
+    transition: all .3s linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s linear;
+}
+footer .container section.one section div:hover {
+    background-color: var(--orange);
+}
+footer .container section.one section div:hover i {
+    color: #fff;
+}
+footer .container section.one section div a {
+    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer .container section.one section div i {
+    font-size: 2vw;
+    color: var(--black);
+}
+footer .container section div.two {
+    height: 50%;
+    width: 20vw;
+}
+footer .container section div {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+footer .container section div p {
+    display: flex;
+}
+footer .container section div p i, footer .container section div p a{
+    font-size: 17%;
+}
+footer #num {
+    font-size: 1rem;
+}
+footer #p {
+    font-size: 17%;
+}
+footer #p i {
+    font-size: 17px;
+}
+footer .container section div p a {
+    margin-left: .5vw;
+    display: block;
+    color: var(--light-color);
+    transition: all .2s linear;
+}
+footer .container section div p a:hover {
+    transform: translateX(1.5vw);
+}
+footer .container section section.hr {
+    width: 90%;
+    height: 2%;
+}
+footer .container section.one p{
+    font-size: 15%;
+}
+footer .container section.two p i {
+    margin-right: 3px;
+}
+footer .container section.three {
+    margin-left: 2vw;
+}
+footer .container section.four {
+    width: 25%;
+    background-color: transparent;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+footer .container section.four h1{
+    margin-bottom: 1vw;
+}
+footer .container section.four p {
+    margin-bottom: 1vw;
+    font-size: 15%;
+}
+footer .container section.four div {
+    height: 12%;
+    min-height: 20px;
+    width: 20vw;
+    border-radius: .3vw;
+    background-color: #eee;
+    margin-bottom: 3vw;
+} 
+footer .container section.four div input {
+    width: 10vw;
+    height: 2vw;
+    margin-left: .5vw;
+    background-color: transparent;
+}
+footer ::placeholder {
+    color: var(--light-color);
+    font-size: 100%;
+}
+footer .container section.four a {
+    display: inline-block;
+    padding: 3% 5%;
+    background-color: transparent;
+    border: 2px solid var(--black);
+    border-radius: 7px;
+    color: var(--black);
+    font-size: 15%;
+    transition: all .3s linear;
+    transform: translateY(-2vw);
+    align-self: flex-start;
+    cursor: pointer;
+}
+footer .container section.four a:hover {
+    color: #fff;
+    background-color: var(--orange);
+}
+footer .container section.four div.main {
+    width: 70%;
+    height: 20%;
+    transform: translateY(-1vw);
+    background-color: transparent;
+}
+@media screen and (max-width: 1100px) {
+    header .nav {
+        height: 6vw;
+    }
+    header .nav section.menu ul{
+        display: none;
+    }
+    header .nav section.icons {
+        width: 40%;
+        height: 60%;
+    }
+    header .nav section.icons section {
+        width: 23%;
+        height: 100%;
+    }
+    header .nav section.icons section i {
+        font-size: 15%;
+    }
+    header .nav section.icons section.icon0{
+        display: flex;
+    }
+    header .nav section.logo span {
+        font-size: 2vw;
+    }
+    header .comes .search{
+        left: 60vw;
+    }
+    header .comes .list {
+        width: 31vw;
+        height: 38vw;
+        left: 60vw;
+    }
+    main section.feature {
+        height:100vw;
+    }
+    header #login {
+        width: 29vw;
+        height: 25vw;
+    }
+    main section.feature div{
+        flex-direction: row;
+        padding: 1vw;
+        width: 100%;
+        height: 100%;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    main section.feature div section.box1 {
+        margin-left: .5vw;
+    }
+    main section.feature div section {
+        display: flex;
+        justify-content: flex-start;
+        width: 40%;
+        height: 40vw;
+    }
+    header section.main h1 {
+        font-size: 3.2vw;
+    }
+    header section.main p {
+        font-size: 1.6vw
+    }
+    header section.main a {
+        font-size: 2vw;
+        padding: 1vw 4vw;
+    } 
+    main section.feature div section div.div1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    main section.product div section:first-child {
+        margin-left: 250vw;
+    }
+    main section.product div section {
+        min-width: 40vw;
+        height: 100%;
+    }
+    main section.categories {
+        height: 100vw;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    main section.categories div {
+        flex-direction: row;
+        padding: 1vw;
+        width: 100%;
+        height: 100%;
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+    main section.categories div section {
+        display: flex;
+        justify-content: flex-start;
+        width: 40%;
+        height: 40vw;
+    }
+    main section.categories div section.box3,
+    main section.categories div section.box4 {
+        margin-top: 2vw;
+    }
+    main section.categories div section div.div1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    main section.reviews div section:first-child {
+        margin-left: 90vw;
+    }
+    main section.reviews div section {
+        min-width: 40vw;
+        margin-left: 2vw;
+        margin-bottom: 2vw;
+        border-radius: .4vw;
+    }
+    main section h1 span {
+        padding: .5vw 6vw;
+    }
+    main section.blogs {
+        min-height: 65rem;
+        justify-content: flex-start;
+    }
+    main section.blogs .container{
+        display: flex;
+        flex-wrap: wrap; 
+    }
+    main section.blogs .container section {
+        min-width: 20rem;
+        min-height: 23rem;
+    }
+    main section.blogs .container section .main_text div.p {
+        margin: 2% 0 1% 0;
+        padding-left: 0px;
+        height: 50%;
+    }
+    main section.blogs .container section .main_text div.a {
+        padding-left: 10px;
+    }
+    footer .container section.one section {
+        width: 180px;
+        display: flex;
+        justify-content: space-between;
+    }
+    footer .container section.one section div {
+        width: 24%;
+        height: 100%;
+    }
+    main section.blogs .container section.box3 {
+        margin-top: 5vw;
+    }
+    main section.blogs .container section .main_text p {
+        margin-top: 3vw;
+        font-size: 15%;
+    }
+    footer .container section div p i, footer .container section div p a{
+        font-size: .8rem;
+    }
+}
+@media screen and (max-width: 828px) {
+    main section.reviews div section:first-child {
+        margin-left: 90vw;
+    }
+    main section.reviews div section div{
+        overflow: hidden;
+    }
+    main section.reviews div section div img {
+        border-radius: 50%;
+    }
+    main section.reviews .container .box .div2 {
+        display: flex;
+        padding: 2vw 1vw;
+        justify-content: space-around;
+    }
+    main section.reviews .container .box .div2 p {
+        transform: translateY(5vw);
+    }
+}
+@media screen and (max-width: 830px) {
+    header .nav section.logo i, 
+    header .nav section.logo span {
+        font-size: 15%;
+    }
+    header .nav section.icons section.icon2,header .nav section.icons section.icon3 {
+        display: none;
+    }
+    header .comes #menu {
+        width: 150px;
+        height: 300px;
+    }
+    header .comes #menu ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    header #login {
+        width: 250px;
+        height: 200px;
+    }
+    header .comes .search {
+        left: 40vw;
+    }
+    header .comes .search input {
+        width: 340px;
+
+    }
+    header section.nav {
+        height: 50px;
+    }
+    header section.main {
+        height: 400px;
+    }
+    header section.main h1{
+        font-size: 25%;
+        color: var(--black);
+    }
+    header section.main h1 span {
+        color: var(--orange);
+    }
+    header section.main p{
+        font-size: 13%;
+        text-align: center;
+        color: var(--light-color);
+        line-height: 2vw;
+    }
+    main section.product div section {
+        margin-left: 1vw;
+        margin-bottom: 1vw;
+        min-width: 300px;
+    }
+    main section.product div section  div section {
+        transform: translateY(-5vw);
+    }
+    main section.categories {
+        justify-content: flex-start;
+    }
+    main section.categories div section {
+        margin-left: 1vw;
+        border-radius: .4vw;
+        min-width: 300px;
+        min-height: 310px;
+    }
+    main section.blogs {
+        min-height: 64rem;
+    }
+    main section.blogs .container .box2 {
+        margin-top: 3rem;
+    }
+    footer .container{
+        flex-direction: column;
+        height: auto;
+    }
+    footer .container section {
+        width: 70%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    footer ::placeholder {
+        font-size: 13px;
+    }
+    footer .container section hr {
+        display: block;
+        width: 95%;
+        height: 1%;
+        border: .1px solid #eee;
+        border-radius: 10px;
+        margin-top: .6vw;
+    }
+    footer .container section h1 {
+        font-size: 25%;
+    }
+    footer .container section.one section {
+        flex-direction: row;
+        margin-top: 2vw;
+    }
+    footer .container section.one section div {
+        width: 40px;
+        height: 50px;
+    }
+    footer .container section.one section div i {
+        font-size: 25%;
+    }
+    footer .container section div p a {
+        font-size: 15%;
+    }
+    footer .container section.three {
+        margin: 0;
+    }
+    footer .container section.four {
+        width: 70%;
+    }
+    footer .container section.four div {
+        width: 50%;
+        height: 30px;
+    }
+    footer .container section.four div input {
+        width: 90%;
+        height: 50%;
+    }
+    footer .container section.four a {
+        margin: 0 auto;
+    }
+    footer .container section.four div.main {
+        width: 60%;
+        height: 50%;
+    }
+    main section.blogs .container section {
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+    main section.blogs .container section.box1 .div {
+        background: url(image/image/blog11.jpg);
+        background-position: center;
+        background-size: cover;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+    main section.blogs .container section.box2 .div {
+        background: url(image/image/blog2.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    main section.blogs .container section.box3 .div {
+        background: url(image/image/blog33.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    main section.blogs .container section .div img {
+        display: none;
+    }
+}
+@media screen and (max-width: 784px) {
+    main section.blogs {
+        min-height: 84rem;
+    }
+}
+@media screen and (max-width: 744px) {
+    main section div section div img {
+    width: 50%;
+    height: 60%;
+}
+    main section.feature {
+        height: 900px;
+    }
+    main section.feature div section {
+        min-width: 250px;
+        min-height: 350px;
+    }
+    main section.product div section:first-child {
+        margin-left: 2020px;
+    }
+}
+@media screen and (max-width: 632px) {
+    header section.main {
+        height: 300px;
+    }
+    main section.feature {
+        height: 1200px;
+    }
+    main section.feature div section {
+        min-width: 350px;
+        min-height: 350px;
+        margin-top: 10px;
+    }
+    main section.feature div section.box1 {
+        margin-top: 0;
+    }
+    main section.categories {
+        height: 1400px;
+    }
+    footer div section.one p span {
+        display:none;
+    }
+}
+@media screen and (max-width: 624px) {
+    main section.categories div section {
+        width: 60%;
+    }
+    main section.categories .box2 {
+        margin-top: 10px;
+    }
+} 
+@media screen and (max-width: 550px) {
+    header .comes .search {
+        left: 20vw;
+    }
+}
+@media screen and (max-width: 500px) {
+    header section.nav {
+        height: 70px;
+    }
+    header section.nav section.logo {
+        margin-left: 4vw;
+    }
+    header section.nav section.logo i,
+    header section.nav section.logo span {
+        font-size: 1.3rem;
+    }
+    header section.nav section.logo span {
+        margin-left: 2vw;
+    }
+    header section.nav section.icons {
+        width: 230px;
+        margin-right: 4vw;
+    }
+    header section.nav section.icons section {
+        width: 40%;
+        height: 90%;
+    }
+    main section.product div section:first-child {
+        margin-left: 2115px;
+    }
+    main section.reviews .container .box .div2 p {
+        transform: translateY(10vw);
+    }
+    header section.main h1 {
+        font-size: 1.3rem;
+    }
+    header section.main p {
+        font-size: .7rem;
+    }
+    header section.main a {
+        font-size: 1rem;
+    }
+    main section.product div section div section {
+        transform: translateY(-8vw);
+    }
+    main section.feature div section {
+        min-width: 320px;
+    }
+    footer .container section{
+        width: 90%;
+        align-items: flex-start;
+    }
+    footer .container section.four {
+        align-items: flex-start;
+        width: 90%;
+    }
+    footer .container section.one p {
+        font-size: .9rem;
+    }
+    footer .container section.four a {
+        margin: 0;
+    }
+}
+@media screen and (max-width: 450px) {
+    header .comes .search {
+        left: 10vw;
+    }
+    header .comes .search input {
+        width: 340px;
+    }
+    header section.main h1 {
+        font-size: 1.1rem;
+    }
+    header section.main p {
+        font-size: .8rem;
+    }
+    main section.reviews .container .box .div2 p {
+        transform: translateY(9vw);
+    }
+}
+@media screen and (max-width: 430px) {
+    main section.reviews .container .box {
+        min-width: 15rem;
+    }
+    main section.reviews div section:first-child {
+        margin-left: 45rem;
+    }
+    main section.reviews .container .box .div2 p {
+        transform: translateY(9vw);
+    }
+    main section.reviews .container .box2 .div2 p {
+        transform: translateY(40px);
+    }
+}
+@media screen and (max-width: 429px) {
+    header section.main p{
+        line-height: 1.2rem;
+    }
+    footer .container section.one p {
+        font-size: .7rem;
+    }
+}
+@media screen and (max-width: 400px) {
+    header .comes .search input {
+        width: 240px;
+    }
+    header section.main {
+        background-color: transparent;
+    }
+    main section.product div section:first-child {
+        margin-left: 2115px;
+    }
+    main section.blogs .container section .main_text p {
+        margin-top: 4vw;
+        font-size: .8rem;
+    }
+}
+@media screen and (max-width: 309px) {
+    header section.main h1 {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 330px) {
+    /* main section.feature .container .box {
+        width: 80%;
+    } */
+    main section.feature div.container section,
+    main section.blogs .container section  {
+        min-width: 280px;
+    }
+}
+@media screen and (max-width: 290px) {
+    header section.main h1 {
+        font-size: .9rem;
+    }
+}
+
+
+/* this is  the 404 style */
+
+#headerfour .nav section.icons .icon1,
+#headerfour .nav section.icons .icon2,
+#headerfour .nav section.icons .icon3 {
+    visibility: hidden;
+}
+#mainfour {
+    margin-top: 9vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+#mainfour div.four0four {
+    font-size: 1.5rem;
+} 
+#mainfour div.four0four h1 {
+    font-size: 12rem;
+}
+#mainfour div.four0four h1 span {
+    color: var(--orange);
+}
+#footerfour {
+    width: 100%;
+    height: 20vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+#footerfour div.fourimg {
+    width: 25%;
+    height: 90%;
+}
+#footerfour div.fourimg img {
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width: 450px){
+    #mainfour {
+        margin-top: 120px;
+    }
+    #mainfour div.four0four {
+        font-size: 1rem;
+    } 
+    #mainfour div.four0four h1 {
+        font-size: 8rem;
+    }
+}
